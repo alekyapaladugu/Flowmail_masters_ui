@@ -20,6 +20,7 @@ module.exports = async (env, options) => {
       polyfill: ["core-js/stable", "regenerator-runtime/runtime"],
       taskpane: ["./src/taskpane/taskpane.js", "./src/taskpane/taskpane.html"],
       commands: "./src/commands/commands.js",
+      assignmentQuestion: "./src/email_templates/assignmentQuestion/assignmentQuestion.js"
     },
     output: {
       clean: true,
@@ -66,6 +67,10 @@ module.exports = async (env, options) => {
             to: "assets/[name][ext][query]",
           },
           {
+            from: "./src/email_templates/assignmentQuestion/assignmentQuestion.css",
+            to: "assignmentQuestion.css",
+          },
+          {
             from: "manifest*.xml",
             to: "[name]" + "[ext]",
             transform(content) {
@@ -83,6 +88,11 @@ module.exports = async (env, options) => {
         template: "./src/commands/commands.html",
         chunks: ["polyfill", "commands"],
       }),
+      new HtmlWebpackPlugin({
+        filename: "assignmentQuestion.html",
+        template: "./src/email_templates/assignmentQuestion/assignmentQuestion.html",
+        chunks: ["polyfill", "assignmentQuestion"]
+      })
     ],
     devServer: {
       headers: {
