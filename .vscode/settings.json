@@ -1,0 +1,6 @@
+{
+    "editor.formatOnSave": true,
+    "files.autoSave": "off",
+    "prettier.bracketSameLine": true,
+    "prettier.prettierPath": "./node_modules/prettier"
+}

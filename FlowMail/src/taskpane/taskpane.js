@@ -20,7 +20,7 @@ function registerEvents() {
 //Load Templates
 function loadTemplates() {
   document.getElementById("template-list-container").style.display = "flex";
-} 
+}
 
 
 function enableInsertBtn() {
@@ -38,22 +38,17 @@ function insertTemplateToBody() {
   //     }
   // });
   let url = new URI('assignmentQuestion.html').absoluteTo(window.location).toString();
-        console.log(url)
-        // let url = ""
-        // fetch("../email_templates/assignmentQuestion/assignmentQuestion.html")
-        // .then(res=>res.text())
-        // .then(data => {
-        //   console.log(data)
-        // })
-        const dialogOptions = { width: 20, height: 40, displayInIframe: true };
+  const dialogOptions = { width: 20, height: 40, displayInIframe: true };
 
-        Office.context.ui.displayDialogAsync(url, dialogOptions, function(result) {
-          settingsDialog = result.value;
-          settingsDialog.addEventHandler(Office.EventType.DialogMessageReceived, receiveMessage);
-          // settingsDialog.addEventHandler(Office.EventType.DialogEventReceived, dialogClosed);
-        });
+  Office.context.ui.displayDialogAsync(url, dialogOptions, function (result) {
+    settingsDialog = result.value;
+    console.log(settingsDialog)
+    settingsDialog.addEventHandler(Office.EventType.DialogMessageReceived, receiveMessage);
+    // settingsDialog.addEventHandler(Office.EventType.DialogEventReceived, dialogClosed);
+  });
 }
 
 function receiveMessage(message) {
   console.log(message)
+  settingsDialog.close()
 }

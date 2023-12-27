@@ -20,8 +20,8 @@
 <body class="ms-font-l">
   <main>
     <section class="ms-font-m ms-fontColor-neutralPrimary">
-      <div class="ms-font-xxl">Template Inputs</div>
-      <form id="template-form">
+      <div class="ms-font-xxl dialog-heading">Template Inputs</div>
+      <form id="template-form" onsubmit="validateForm()">
         <div class="ms-Grid">
           <div class="ms-Grid-row">
             <div class="ms-TextField">
@@ -38,8 +38,8 @@
           <div class="ms-Grid-row">
             <div class="ms-TextField">
               <label class="ms-Label">Assigment Question</label>
-              <input class="ms-TextField-field" id="assignment-question-content" type="text" value=""
-                placeholder="@Question for the Professor">
+              <textarea class="ms-TextField-field" id="assignment-question-content" type="text" value=""
+                placeholder="@Question for the Professor"> </textarea>
             </div>
           </div>
           <div class="ms-Grid-row">
@@ -55,17 +55,19 @@
             </div>
           </div>
         </div>
-      </form>
-      <div class="ms-Dialog-actions">
-        <div class="ms-Dialog-actionsRight">
-          <button class="ms-Dialog-action ms-Button ms-Button--primary" for="template-form" id="settings-icon" disabled>
-            <span class="ms-Button-label">Done</span>
-          </button>
+        <div class="ms-Dialog-actions">
+          <div class="ms-Dialog-actionsRight">
+            <button type="submit" class="ms-Dialog-action ms-Button ms-Button--primary" for="template-form"
+              id="settings-icon">
+              <span class="ms-Button-label">Done</span>
+            </button>
+          </div>
         </div>
-      </div>
+      </form>
+
     </section>
   </main>
-  <script type="text/javascript" src="assignmentQuestion.js"></script>
+  <script type="text/javascript" src="./assignmentQuestion.js"></script>
 </body>
 
 </html>
